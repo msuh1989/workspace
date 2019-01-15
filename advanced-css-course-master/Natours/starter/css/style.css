@@ -129,11 +129,24 @@ body{
     }
 }
 
+@keyframes moveInBottom {
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
 /* To style links appropriately, 
 put the :visited rule after the :link rule but before the :hover and :active rules, 
 as defined by the LVHA-order: :link — :visited — :hover — :active. */
 .btn:link,
 .btn:visited {
+
     text-transform: uppercase;
     text-decoration: none;
     padding: 15px 40px;
@@ -142,6 +155,9 @@ as defined by the LVHA-order: :link — :visited — :hover — :active. */
     border-radius: 100px;
     /* transition animation: specify which property will be animated / time that will take */
     transition: all .2s;
+    /* this is for .btn::after styling */
+    position: relative;
+
 }
 
 .btn:hover{
@@ -159,4 +175,38 @@ as defined by the LVHA-order: :link — :visited — :hover — :active. */
 .btn-white {
     background-color: #fff;
     color: #777;
+}
+
+/* A CSS pseudo-element is used to style specified parts of an element.
+For example, it can be used to:
+Style the first letter, or line, of an element
+Insert content before, or after, the content of an element */
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after{
+    background-color: white;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    /* animation-name/ time-take / timing-function/ delay*/
+    animation: moveInBottom .5s ease-out .75s;
+    /* automatically applies the element the properties of 0% before the animation starts. */
+    animation-fill-mode: backwards;
 }
