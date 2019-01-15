@@ -1,8 +1,162 @@
 /*
 COLORS:
-
 Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
-
 */
+/*---------------------------- The Reset ----------------------------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #777;
+
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;
+
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(126, 213, 111, 0.8), 
+        rgb(40, 180, 133, 0.8)), 
+        url(../img/hero.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box{
+    /* parent element needs to have position set to relative for absolut positioning to work */
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    /* jonas prefers to control the size with height */
+    height: 35px;
+}
+
+.text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* in relation with the element itself */
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-primary{
+    color: #fff;
+    text-transform: uppercase;
+
+    /* this is for the animation glitch, i dont really see it... */
+    /* this property actually determines if we see the back part of the element when rotating */
+    backface-visibility: hidden;
+    margin-bottom: 60px;
+}
+
+.heading-primary-main{
+    display: block;
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /* animation-delay: 3s; */
+    /* animation-iteration-count: 3; */
+    
+}
+
+.heading-primary-sub{
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    /* values after decimal matters */
+    letter-spacing: 17.4px;
+
+    /* shortend version */
+    animation: moveInRight 1s ease-out;
+}
+
+/* two types of animations in css 1.transition 2.@keyframes */
+/* for browser performance it is best to animate only two properties 1.opacity 2.transform */
+@keyframes moveInLeft {
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    /* 60%{
+        transform: rotate(120deg);
+    } */
+    80%{
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80%{
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+/* To style links appropriately, 
+put the :visited rule after the :link rule but before the :hover and :active rules, 
+as defined by the LVHA-order: :link — :visited — :hover — :active. */
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    /* because this is an inline block appling text-align center will easily center the content. */
+    display: inline-block;
+    border-radius: 100px;
+    /* transition animation: specify which property will be animated / time that will take */
+    transition: all .2s;
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+    /* box-shadow: x direction/ y direction/ blur/ color */
+    box-shadow: 0 10px 20px rgba(0, 0, 0,.2);
+}
+
+.btn:active{
+    transform: translateY(-1px);
+    /* adjust the shadow values to create the button is actually pressed down. */
+    box-shadow: 0 5px 10px rgba(0, 0, 0,.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
