@@ -1,0 +1,14 @@
+{
+  "name": "traversy-mern-shopping-list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+
+  },
+  "author": "",
+  "license": "MIT"
+}
+
