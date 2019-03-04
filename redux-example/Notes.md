@@ -16,3 +16,9 @@ https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Examples#
 npm i redux react-redux redux-thunk
 
 https://redux.js.org/
+
+https://react-redux.js.org/
+
+https://redux.js.org/introduction/core-concepts
+
+chrome redux dev tools
